@@ -120,14 +120,14 @@ NSString * WebViewJavascriptBridge_js() {
 	messagingIframe.style.display = 'none';
 	messagingIframe.src = CUSTOM_PROTOCOL_SCHEME + '://' + QUEUE_HAS_MESSAGE;
 	document.documentElement.appendChild(messagingIframe);
-
+	
 
         var readyEvent = document.createEvent('Events');
         readyEvent.initEvent('WebViewJavascriptBridgeReady');
         console.log('WebViewJavascriptBridgeReady');
         readyEvent.bridge = WebViewJavascriptBridge;
         document.dispatchEvent(readyEvent);
-        
+
 	registerHandler("_disableJavascriptAlertBoxSafetyTimeout", disableJavscriptAlertBoxSafetyTimeout);
 	
 	setTimeout(_callWVJBCallbacks, 0);
